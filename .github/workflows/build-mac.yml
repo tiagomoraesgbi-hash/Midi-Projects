@@ -1,0 +1,15 @@
+name: build-mac
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  mac:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash OriginalVerb_project_mac-2/mac/build_mac.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: OriginalVerb-mac
+          path: OriginalVerb_project_mac-2/OriginalVerb-mac.zip
